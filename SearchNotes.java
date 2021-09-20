@@ -1,6 +1,6 @@
 /*
 
-	notes 0: searches
+	notes 2: searches
 	julia sato for cs-245 [fall 2021]
 	sept 19, 2021
 
