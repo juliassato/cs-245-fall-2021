@@ -68,39 +68,54 @@ class SortNotes{
 
 	public static void main(String args[]){
 		
-		double [] arr0 = {54, 65, 84, 39, 59};
-
+		int [] arr0 = {54, 65, 84, 39, 59};
+		int [] arr1 = {24, 56, 3, 59, 90, 21, 11, 8, 12, 25, 29};
+		
+		System.out.println(firstPivot(arr0));
+		System.out.println(firstPivot(arr1));
 	}
 
-	public static void quickSort(double [] arr, int bot, int top){
+	public static void quickSort(int [] arr, int bot, int top){
 		if(bot < top){ // base case is top < bot is NOP (no operation, aka do nothing)
-			int p = partition(arr, bot, top);
-			quicksort(arr, bot, p - 1);
-			quicksort(arr, p + 1);
+			int p = firstPivot(arr);
+			// quicksort(arr, bot, p - 1);
+			// quicksort(arr, p + 1);
 
 		}
 	}
 
 	
-	public static void partition(double [] arr, int left, int right){
+	public static void partition(int [] arr, int left, int right){
 		
 	}
 
+	public static int firstPivot(int [] arr){
+		
+		// the idea of this is to select randomly from each third of the array ..
+		// for some reason i thought that would be a more accurate way of picking
+		// an initial pivot value but now i don't remember why. 
 
-	public static void findMedian(int a, int b, int c){
+		int a = arr[(int)(Math.random()*arr.length/3)];
+		int b = arr[(int)(Math.random()*arr.length/3 + arr.length/3)];
+		int c = arr[(int)(Math.random()*arr.length/3 + arr.length/3 * 2)];
+		
+		return findMedian(a, b, c);
+	}
+
+	public static int findMedian(int a, int b, int c){
 		if(a < b && a < c){
 			if(b < c)
 			{ return c; }
 			else
 			{ return b; }
 		}
-		if(b < a && b < c){
+		else if(b < a && b < c){
 			if(a < c)
 			{ return a; }
 			else
 			{ return c; }
 		}
-		if(c < a && c < b){
+		else {
 			if(a < b)
 			{ return a; }
 			else
