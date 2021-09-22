@@ -9,6 +9,8 @@
 	> main
 	> binary search binarySearch(int[], int);
 		+ input a sorted array and target value.
+		+ errors while writing
+	> 
 
 */
 
