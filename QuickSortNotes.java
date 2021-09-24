@@ -7,6 +7,7 @@
 	quicksort is kind of like merge sort, but has a very complicated divide step. easy merge step. 
 	the divide step is called 'partition'. a 'pivot' .. all values move around it.  
 	this is an 'in place' sort. it is very fast and merge sort rarely outperforms it. 
+	in place sorts are defined by constant space requirements.
 
 	> we need to pick a pivot (should be in the middle). theoretically put it in the middle. 
 	> look at the other values. sort left if less/equal to pivot and rest to right. 
@@ -61,10 +62,13 @@
 	if you can guarantee the order of duplicate values will be preserved, it is stable. 
 	e.g. you have 2 5's and they stay in the same order once sorted (e.g. 5', 5")
 	quicksort and selection sort are not stable. 
+	
+	quicksort is not stable because of the random selection of the pivot ..?
+
 */
 
 
-class SortNotes{
+class QuickSortNotes{
 
 	public static void main(String args[]){
 		
