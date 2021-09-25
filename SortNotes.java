@@ -15,6 +15,8 @@
 		? it is faster because it could be like O(n+k) which is less than n log n
 	
 	++ radix sort ++ 
+	> n space, n*d speed? radix sort is fast but inefficient when it comes to space. 
+
 	- we are breaking numbers down into their individual integers and sorting them 
 	  first sort by ones digit into a 'bucket'. the order is maintained with FIFO .. important
 		
@@ -66,7 +68,11 @@ class NonComparisonSortNotes{
 		}
 
 		
-	
+
+
+
+
+
 	public static void radixSort(){
 
 		
