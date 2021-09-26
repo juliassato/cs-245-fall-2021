@@ -15,6 +15,25 @@
 	output: how to buy the most ice cream bars, and how many.
 		type == the indices of the ice cream bars. 
 			&& the int total ice creams. 
+
+	++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+       - we are breaking numbers down into their individual integers and sorting them 
+          first sort by ones digit into a 'bucket'. the order is maintained with FIFO .. important
+                
+                + sort by ones digit into 'bucket', maintaining order +
+                + sort by tens digit into 'bucket', maintaining order +
+                + next by hundreds . if no digit, put in zero 'bucket'
+
+	
+	1. how to get the individual digits? 
+		+ divide by multiples of 10 to put desired digit in ones place
+		+ modulo by 10
+	2. bucket ?????
+		+ it is a list full of queues (linked lists or array lists) 
+		+ 
+
+
 */
 
 class RadixSort{
