@@ -86,6 +86,31 @@
 				do not move past. 
 
 
+	I HAVE DISCOVERED 	the queue interface
+				
+			forget all the other stuff 
+			import java.util.Queue;
+			
+			import java.util.LinkedList;
+			import java.util.ArrayDeque; << deque.. the double one
+			import java.util.PriorityQueue << bypass other elements by priority
+		
+		+ declare the type of queue to prevent weird inputs and avoid casting. 
+		+ insert with add method or offer method
+			- add(x): throw exception if queue is full
+			- offer(x): returns false if queue is full
+		+ remove with one of two methods
+			- poll(): return null if no elements
+			- remove(): throw exception if no elements
+
+		+ peek(): retrieve something from the queue without removing it
+		+ contains(x): returns true or false. 
+
+		+ clear(): remove everything!!!!!!!!!!!! 
+
+		> you can iterate through it with an Iterator element hasNext(). 
+		> you can also use a for each loop <
+		> you can iterate with streams interface
 */
 
 class StackQueueNotes{
