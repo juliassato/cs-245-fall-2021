@@ -29,33 +29,55 @@
 	1. how to get the individual digits? 
 		+ divide by multiples of 10 to put desired digit in ones place
 		+ modulo by 10
+		- how to know when stop ????? ???????????????????????????????????????????????/
 	2. bucket ?????
 		+ it is a list full of queues (linked lists or array lists) 
-		+ 
+		+ OK... i will wing it 
 
 
 */
+
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.List;
 
 class RadixSort{
 
 	public static void main(String args[]){ 
 	
-	int number = 1234;
+		int brizanIceCreamAddictionFund = 905; // there are 905 dollars in the brizan ice cream addiction fund. 
+		int[] iceCreamPrices = new int[10]; // there are 50 purchaseable icecreams. 
 
-	System.out.println("here is a 4 digit number % 10: " + number % 10);
-	System.out.println("here is a 4 digit number / 10 % 10: " + number/10 % 10);
+		for(int i = 0; i < iceCreamPrices.length; i++)
+		{ iceCreamPrices[i] = (int) (Math.random() * 100 + 1); } 
 
+		for(int i : iceCreamPrices) { System.out.println(i); }
+
+		LinkedList[] bucketlist = new LinkedList[10]; // ?? it is 10 buckets for integers 0-9. haha bucketlist
+		
+		for(int i = 0; i < 10; i++) // populate the list with lists
+		{ bucketlist[i] = new <Integer>LinkedList(); }
+
+	//+++++++++++++++++++++++++++++++++++++++++++++
+
+		int digit = 0;
+		for(int i = 0; i < 3; i++){
+			for(int j = 0; j < iceCreamPrices.length; j++){
+				
+				int placeValue = (int)(iceCreamPrices[j] / Math.pow(10,digit) % 10);
+				bucketlist[placeValue].add(iceCreamPrices[j]);
+				System.out.println("The place value is " + placeValue + " in iteration " + j + " of loop j.");
+			}
+			digit++;
+		}
+
+		for(LinkedList i : bucketlist){
+			// System.out.print(i + " ");
+			for(Object j : i) 
+			{ System.out.print((int)j + " "); }
+			System.out.println();
+		}
 
 	}
-
-	
-
-	// public static int getDigit(int a){
-		// i am trying to make a recursive getter of digits.
-		// but it actuallly just modulos 
-		// i abandon this function. 
-	// }
-
-
 
 }
