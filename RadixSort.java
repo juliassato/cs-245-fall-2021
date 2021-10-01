@@ -34,6 +34,7 @@
 		+ it is a list full of queues (linked lists or array lists) 
 		+ OK... i will wing it 
 
+	3. write back sortedish values to the array
 
 */
 
@@ -46,12 +47,13 @@ class RadixSort{
 	public static void main(String args[]){ 
 	
 		int brizanIceCreamAddictionFund = 905; // there are 905 dollars in the brizan ice cream addiction fund. 
-		int[] iceCreamPrices = new int[10]; // there are 50 purchaseable icecreams. 
+		int[] iceCreamPrices = new int[10]; // there are 10 purchaseable icecreams. 
 
-		for(int i = 0; i < iceCreamPrices.length; i++)
+		for(int i = 0; i < iceCreamPrices.length; i++) // populate the ice cream price list.
 		{ iceCreamPrices[i] = (int) (Math.random() * 100 + 1); } 
 
-		for(int i : iceCreamPrices) { System.out.println(i); }
+		for(int i : iceCreamPrices) { System.out.print(i + " "); } // print the ice cream prices
+		System.out.println();
 
 		LinkedList[] bucketlist = new LinkedList[10]; // ?? it is 10 buckets for integers 0-9. haha bucketlist
 		
@@ -61,7 +63,7 @@ class RadixSort{
 	//+++++++++++++++++++++++++++++++++++++++++++++
 
 		int digit = 0;
-		for(int i = 0; i < 3; i++){
+		for(int i = 0; i < 3; i++){ // loop through places (i < places) 
 			for(int j = 0; j < iceCreamPrices.length; j++){
 				
 				int placeValue = (int)(iceCreamPrices[j] / Math.pow(10,digit) % 10);
@@ -69,7 +71,18 @@ class RadixSort{
 				System.out.println("The place value is " + placeValue + " in iteration " + j + " of loop j.");
 			}
 			digit++;
+
+			for(int k = 0; k < iceCreamPrices.length; k++){ // loops through icecreamprices 
+				int bucketIndex = 0;
+				while(bucketlist[bucketIndex].peek() != null){ // while there is stuff in the bucket
+					iceCreamPrices[k] = bucketlist[bucketIndex].poll().intValue(); // get the stuff from the bucket and put it in prices
+				}
+			}
+
+
 		}
+
+
 
 		for(LinkedList i : bucketlist){
 			// System.out.print(i + " ");
