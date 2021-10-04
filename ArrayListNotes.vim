@@ -1,14 +1,14 @@
 
 	notes 7: arraylists and linked lists (?) maybe 
 	julia sato for cs-245 [fall 2021]
-	sept 24, 2021
+	sept 24, 2021 :: oct 4, 2021
 
 	unified modelling language(UML) 
 	> we are using 'class diagram' with 3 components 
 		+ name of class
 		+ attributes
 		+ operations/functions
-	- visibility is indicated with +(public) -(private) !=(protected) and one more 
+	- visibility is indicated with +(public) -(private) #(protected) ~(package) and one more 
 	<<interface>> : like an abstract class? 
 		e.g. 
 			List<T> must contain things of type <T>
@@ -18,6 +18,7 @@
 	interfaces cannot be instantiated on their own. you must instantiate a type 
 	that implements that interface. 
 
+	uml uses dashed arrows to show implementation . uml is kind of odd bc of java
 
 	ArrayList 
 		+ arraylist implements the <List> interface.
@@ -26,9 +27,12 @@
 	> professor is getting a headache over something with typing and java.
 		because you need to declare an arraylist with a type 
 		so you need to declare it as type Object
-	public class ArrayList<T> implements List<T>
+	public class ArrayList<T> implements List<T> {} // way to implement the class
+	> arr = (T[]) new Object[10]; // generates a warning. casting an object array to generic
+	> arraylists can cause memory leaks (leaks are when too much data and it overflows and needs restart)
+		prof says it's a good reason not to use arraylists. 
 
-	get() in class ArrayList runs in O(1)
+	get() in class ArrayList runs in O(1) ..... even if bad input, can't interact with user. just throws
 	add() could fail if the array is full. so to compensate, the array is 
 		copied into a bigger array if it is full! it makes a new array. 
 		makes a new array by *2 and change the pointy point
@@ -41,4 +45,5 @@
 				elements in the array. 
 	add() at index. shift all the items right by one and insert it at the place. 
 	size() 
+	remove() 
 
