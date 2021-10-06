@@ -1,7 +1,7 @@
 
 	notes 7: arraylists and linked lists (?) maybe 
 	julia sato for cs-245 [fall 2021]
-	sept 24, 2021 :: oct 4, 2021
+	sept 24, 2021 :: oct 4, 2021 :: oct 6, 2021
 
 	unified modelling language(UML) 
 	> we are using 'class diagram' with 3 components 
@@ -44,6 +44,31 @@
 			+ it's constant running time amourtized over the number of 
 				elements in the array. 
 	add() at index. shift all the items right by one and insert it at the place. 
-	size() 
-	remove() 
+	size() O(1)
+	remove() O(n)
+
+
+
+	iterators : O(n) 
+	++ it has two main functions: hasNext() and next() ++ 
+		these are the important ones. 
+	- prof is saying put the file implementing iterator ..
+		something about two classes in one file. 
+		- declare inside same file as arraylist so that it can access all private data. 
+		- putting it in the same files lets you get everything you need. 
+		
+		[ PRIVATE classes can access each other inside the same file ]
+		- you make an iterator() function to return an instance of the iterator class
+			and assigns it somewhere else. since it's a private class. 
+			secrets !!
+
+	enables while loops 
+	> while loops are used for political reasons. 
+
+
+
+
+
+
+
 

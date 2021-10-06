@@ -111,6 +111,8 @@
 		> you can iterate through it with an Iterator element hasNext(). 
 		> you can also use a for each loop <
 		> you can iterate with streams interface
+	
+
 */
 
 class StackQueueNotes{
