@@ -90,7 +90,7 @@ class Stacks implements Stack{
 		int[] arr = new int[size];
 	}
 
-	public void push(int i){
+	public void push(){
 		arr[top]
 	}
 
@@ -118,16 +118,26 @@ class Stacks implements Stack{
 	int top;
 
 	protected void grow_array() {
-		T[] newArr = (T[]) new Object[arr.size * 2];
+		T[] newArr = (T[]) new Object[arr.length * 2];
+		for(int i = 0; i < arr.length; i++){
+			newArr[i] = arr[i];
+		}
+		arr = newArr;
 	}
 
 	public void push(T item) {
-		
+		if(top <=  arr.size) {
+			arr[top++] = item;
+		} else {
+			grow_array();
+			push(item);
+		}
 	}
 
 	public T pop() throws Exception {
 		if(empty())
 			throw new Exception("Stack underflow");
+		return arr[--top];
 	}
 
 	public T peek() throws Exception {
