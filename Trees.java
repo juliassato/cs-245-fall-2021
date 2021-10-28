@@ -69,8 +69,61 @@
 			14
 
 
-	traversals: 
+	traversals:
+	hitting every node on the tree. 
+	> in-order : start from root. visit entire left subtree. then visit the right. 
+		go left left left left left. then go up one and then go right. 
+		aka. visiting the nodes in-order. 
+		>>> go left when possible. then go right. but recursively go left when possible. 
+	> post-order : useful in 'deficient' languages to destroy trees. very useful there. 
+	> pre-order : children first (good for copying things
 
+	copy constructor: recursive copying structure? top down? can do without damaging tree ? 
+		important in c++. 
+		e.g. you store your tree and then you have to reconstruct it. because you need
+		to reconstruct from parents, use parent before children structure. 
+
+	in order : 
+	protected void inOrderTraversal(BSTNode node){
+		if(node != null){
+			inOrderTraversal(node.left);
+			System.out.println(node.data);
+			inOrderTraversal(node.right);
+		}
+	}
+
+	BST delete: most terrible code we will write. 
+		> easy case - delete a leaf. 
+			if it has one child, take the child and put it in the parent pos.
+		> harder - replacing with in order successor , leftmost thing in the right subtree
+			and then making that the root node instead. you can also look at the ..?
+
+		the find is the ugly thing ? 
+		we care about what the tree looks like after a remove. but no memorization 
+		may need in-order successor. 
+
+		> find first node matching key
+		> if has 0 or 1 child promote to parent. 
+		> i missed the next step
+
+	performance of trees: 
+		- better than linked list. but can become looking like a link list and therefore 
+			performs like one. (worst case) 
+		- otherwise generally O(log n) for a find/insert/delete
+		- any traversal O(n) 
+		> technically what we care about is the height of the tree 
+			kind of hard to find ? 
+			we write it recursively . 
+			base case: the node's next is null
+			+ traverse to all the ends, then count up from the ends and figure out 
+				which is the highest count. 
+		counting nodes: recursively return things to add up !
+	
+	degenerate tree: each intereior node has 1 child
+	full tree: 	each interior has 2 children
+	perfect tree: perfectly balanced and full
+
+		
 
 
 
