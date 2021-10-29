@@ -1,7 +1,7 @@
 /*
 	notes 10: trees
 	julia sato [fall 2021]
-	oct 25, 2021
+	oct 25, 2021, oct 29, 2021
 
 	
 	
@@ -119,16 +119,81 @@
 				which is the highest count. 
 		counting nodes: recursively return things to add up !
 	
-	degenerate tree: each intereior node has 1 child
+	degenerate tree: each intereior node has zero children or 1 child. worst performance on find/insert/rm
 	full tree: 	each interior has 2 children
-	perfect tree: perfectly balanced and full
+	perfect tree: perfectly balanced and full and all leaves same distance from depth to root. 
+	balanced tree: height of left and right differ at most by 1 
 
+
+	++++ self balancing trees ++++ 
+
+	AVL tree: rotates to balance by moving the root (prof hates these) 
+			red black trees
+
+	2-3 trees, 2-3-4 trees, B trees
+	
+	2-3 trees :  always a perfect tree. built by '2' nodes and '3' nodes. 	
+		2 node: either 2 children or 0 children. has 1 value
+		3 node: either 3 children or 0 children. has 2 values
+
+		performance is log2(n) or log3(n)
+
+		> [IMPLEMENTATION NOTE] often people will use 3 nodes as 2 nodes. 
+					then just don't use the middle child or the other pair.
+
+		the tree is always balanced because it distributes 
+		grows upwards even though always inserting in leaves ?
 		
+		how do we think about inserting? insert(k)
+			1. find k. (where you will perform the insert) 
+			2. 2-node: [add k to 2-node]
+			   3-node: [arrange keys in sorted order]
+			   	   [promote the middle value]
+				   [split others to left and right]
+				   [recursively add the middle key to parent]
+		
+		Q: why don't we also have a 4 node? 
+		A: would technically be even more efficient, but since you promote the middle it causes issues
+			because it's an even number and you have to select it 
+		
+		prof: why not get carried away? then it becomes a B tree. 
+			it is what computers are based on more than anything else. 
+			access anything in exactly log n time. 
+
+			it is called a b tree because it's to the degree of b. 
+			a 2-3 tree is a b tree of degree n. 
+
+		Q[clay]: what is the largest you should go? 
+		A: depends on amt of stuff in b tree but he has seen the degree 11 b tree at most. 
+			there is no good answer.. 
 
 
+	n-ary tree: (aka kary tree kway tree mary tree) 
+		>> each node can have any number of children. 
+		>> leaves at the same level will link to each other. 
 
+	
 
+	+++++++++++++ databases: bonus notes (after class) ++++++++++++++++++
 
+				how do databases work?
+	
+	+ if we see any repeats we remove that. ? 
+	ex. music
+	
+	crow's foot erd (entity related database? i missed it) 
+	an artist can create many songs, an album can contain many songs. 
+
+	usually in databases we have an arbitrary id. for say an artist. 
+	the whole thing becomes a key value pair. 
+	[value: drake , key: ..? ] you end up inserting into a tree based on the key. 
+
+	how to determine the key? 
+		in classic relational database: eg mysql. 
+		you are allowed to have 1 key. 
+		to avoid having a linear search time by going through everything. 
+		construct a tree on top as a quick index for each search term (e.g. genre) 
+	modern databases have different ways of accessing data. 
 
 
 */
